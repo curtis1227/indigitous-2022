@@ -1,12 +1,7 @@
 import { useState } from 'react';
-
-function createBulletPoint(key, text) {
-  return <li key={key}>{text}</li>;
-}
+import { searchForListOfChurches } from '../lib/fetchers';
 
 export default function HomePage() {
-  const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
-
   const [likes, setLikes] = useState(0);
 
   function handleClick() {
@@ -17,10 +12,14 @@ export default function HomePage() {
     <div>
       <h1>Search churches</h1>
       <ul>
-        {names.map(name => createBulletPoint(name, name))}
+        {searchForListOfChurches('').map(church_name => createBulletPoint(church_name))}
       </ul>
 
       <button onClick={handleClick}>Like ({likes})</button>
     </div>
   );
+}
+
+function createBulletPoint(text) {
+  return <li>{text}</li>;
 }

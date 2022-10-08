@@ -4,5 +4,5 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
   const query = req.query;
   const { keyword } = query;
 
-  res.status(200).json({ keyword });
+  res.status(200).json({ list_of_churches: ['lscc', 'hmcc'] });
 }
