@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-function Header({ title }) {
-  return <h1>{title ? title : 'Default title'}</h1>;
+function createBulletPoint(key, text) {
+  return <li key={key}>{text}</li>;
 }
 
 export default function HomePage() {
@@ -15,11 +15,9 @@ export default function HomePage() {
 
   return (
     <div>
-      <Header title="Develop. Preview. Ship. 🚀" />
+      <h1>Search churches</h1>
       <ul>
-        {names.map((name) => (
-          <li key={name}>{name}</li>
-        ))}
+        {names.map(name => createBulletPoint(name, name))}
       </ul>
 
       <button onClick={handleClick}>Like ({likes})</button>
